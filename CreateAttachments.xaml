@@ -15,7 +15,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>500,1509</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>500,1663</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>CreateAttachments_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -62,10 +62,9 @@
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="CreateAttachments" sap:VirtualizedContainerService.HintSize="480,1449" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="CreateAttachments" sap:VirtualizedContainerService.HintSize="480,1603" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="‪C:\Users\pmackevicius\Desktop\ADifferentFolder\" Name="DataFolderPath" />
     </Sequence.Variables>
@@ -74,6 +73,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
+    <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="438,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
     <Assign sap:VirtualizedContainerService.HintSize="438,60" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[out_SAMRegistrationDetailsFilePath]</OutArgument>
@@ -106,9 +106,9 @@
         <InArgument x:TypeArguments="x:String">[String.Format("{0}\{1}.pdf", in_DataFolderPath, in_FAPIISFile)]</InArgument>
       </Assign.Value>
     </Assign>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,957" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,1049" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="376,730" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence sap:VirtualizedContainerService.HintSize="376,822" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <Sequence.Variables>
             <Variable x:TypeArguments="s:String[]" Name="files" />
           </Sequence.Variables>
@@ -120,15 +120,22 @@
           <ui:WriteTextFile DisplayName="Write Text File" FileName="[out_SAMRegistrationDetailsFilePath]" sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[in_SAMRegistrationDetails]" />
           <ui:WriteTextFile DisplayName="Write Text File" FileName="[out_RepsAndCertsFilePath]" sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="WriteTextFile_2" Text="[in_RepsAndCerts]" />
           <ui:WriteTextFile DisplayName="Write Text File" FileName="[out_RecordDetailsFilePath]" sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="WriteTextFile_3" Text="[in_RecordDetails]" />
-          <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_5">
-            <Assign.To>
-              <OutArgument x:TypeArguments="s:String[]">[files]</OutArgument>
-            </Assign.To>
-            <Assign.Value>
-              <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(in_DataFolderPath)]</InArgument>
-            </Assign.Value>
-          </Assign>
-          <bz:ZipFilesCls Password="{x:Null}" DisplayName="Zip" FolderFilesPath="[files]" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="ZipFilesCls_1" ZipFile="[String.Format(&quot;{0}\{1}_{2}.zip&quot;, in_DataFolderPath, in_DUNSNumber, in_FormattedDate)]" />
+          <Sequence sap:VirtualizedContainerService.HintSize="334,214" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+              <Assign.To>
+                <OutArgument x:TypeArguments="s:String[]">[files]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(in_DataFolderPath)]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <bz:ZipFilesCls Password="{x:Null}" DisplayName="Zip" FolderFilesPath="[files]" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="ZipFilesCls_1" ZipFile="[String.Format(&quot;{0}\{1}_{2}.zip&quot;, in_DataFolderPath, in_DUNSNumber, in_FormattedDate)]" />
+          </Sequence>
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>

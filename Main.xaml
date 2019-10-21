@@ -43,7 +43,6 @@
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart sap:VirtualizedContainerService.HintSize="634,636" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -153,7 +152,7 @@
                       <av:PointCollection x:Key="ConnectorLocation">510,510 540,510 540,170 440,170</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Process DUNS Numbers" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" Timeout="{x:Null}" UnSafe="False" WorkflowFileName="ProcessDUNSNumbers.xaml">
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Process DUNS Numbers" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" Timeout="{x:Null}" UnSafe="False" WorkflowFileName="ProcessDUNSNumbers.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <InOutArgument x:TypeArguments="x:Boolean" x:Key="io_InputError">[InputError]</InOutArgument>
                       <InArgument x:TypeArguments="s:String[]" x:Key="in_DUNSNumbers">[DUNSNumbers]</InArgument>
