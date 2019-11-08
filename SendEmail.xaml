@@ -9,6 +9,10 @@
     <x:Property Name="in_FAPIISRecords" Type="InArgument(x:String)" />
     <x:Property Name="in_BotEmailAddress" Type="InArgument(x:String)" />
     <x:Property Name="in_DataFolderPath" Type="InArgument(x:String)" />
+    <x:Property Name="in_VIPVerified" Type="InArgument(x:String)" />
+    <x:Property Name="in_EEOReport" Type="InArgument(x:String)" />
+    <x:Property Name="in_VETSVerification" Type="InArgument(x:String)" />
+    <x:Property Name="in_SEWPVReport" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
@@ -83,7 +87,7 @@
     </ui:InvokeWorkflowFile>
     <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,372" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <ui:SendOutlookMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Account="[in_BotEmailAddress]" Body="[String.Format(&quot;DUNS#: {0}&quot; + Environment.NewLine + &quot;Vendor Name: {1}&quot; + Environment.NewLine + &quot;Vendor Address: {2}&quot; + Environment.NewLine + &quot;Active Exclusions (Yes/No): {3}&quot; + Environment.NewLine + &quot;Issues found in FAPIIS(e.g. Termination, Adverse Determination) (Yes/No): {4}&quot; + Environment.NewLine + &quot;Summary: {5}&quot;, in_DUNSNumber, in_VendorName, in_VendorAddress, in_ExclusionRecords.Split(&quot;?&quot;c)(1), isIssueFound, Summary)]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" IsBodyHtml="False" IsDraft="False" Subject="[String.Format(&quot;Federal Contractor Check For DUNS#{0}&quot;, in_DUNSNumber)]" To="[in_Sender]">
+        <ui:SendOutlookMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Account="[in_BotEmailAddress]" Body="[String.Format(&quot;DUNS#: {0}&quot; + Environment.NewLine + &quot;Vendor Name: {1}&quot; + Environment.NewLine + &quot;Vendor Address: {2}&quot; + Environment.NewLine + &quot;Active Exclusions (Yes/No): {3}&quot; + Environment.NewLine + &quot;Issues found in FAPIIS(e.g. Termination, Adverse Determination) (Yes/No): {4}&quot; + Environment.NewLine + &quot;SEWPV Contractor: {5}&quot; + Environment.NewLine + &quot;EEO Verified: {6}&quot; + Environment.NewLine + &quot;VIP Verified: {7}&quot; + Environment.NewLine + &quot;VETS Verified: {8}&quot; + Environment.NewLine + &quot;Summary: {9}&quot;, in_DUNSNumber, in_VendorName, in_VendorAddress, in_ExclusionRecords.Split(&quot;?&quot;c)(1), isIssueFound, in_SEWPVReport, in_EEOReport, in_VIPVerified, in_VETSVerification, Summary)]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" IsBodyHtml="False" IsDraft="False" Subject="[String.Format(&quot;Federal Contractor Check For DUNS#{0}&quot;, in_DUNSNumber)]" To="[in_Sender]">
           <ui:SendOutlookMail.Files>
             <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
               <InArgument x:TypeArguments="x:String">[String.Format("{0}\{1}_{2}.zip", in_DataFolderPath, in_DUNSNumber, in_FormattedDate)]</InArgument>
