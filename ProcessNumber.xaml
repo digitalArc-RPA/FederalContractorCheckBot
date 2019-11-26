@@ -4,6 +4,7 @@
     <x:Property Name="in_Sender" Type="InArgument(x:String)" />
     <x:Property Name="in_DUNSNumber" Type="InArgument(x:String)" />
     <x:Property Name="in_BotEmailAddress" Type="InArgument(x:String)" />
+    <x:Property Name="in_DataFolderPath" Type="InArgument(x:String)" />
   </x:Members>
   <this:ProcessNumber.in_Sender>
     <InArgument x:TypeArguments="x:String">
@@ -23,7 +24,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>859,1330</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>859,1348</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessNumber_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -70,10 +71,9 @@
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart DisplayName="ProcessNumber" sap:VirtualizedContainerService.HintSize="839,1270" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart DisplayName="ProcessNumber" sap:VirtualizedContainerService.HintSize="839,1288" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="x:Int32" Default="0" Name="ApplicationErrorCount" />
       <Variable x:TypeArguments="x:String" Name="SAMRegistrationDetails" />
@@ -103,47 +103,48 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <av:Point x:Key="ShapeLocation">480,2.5</av:Point>
         <av:Size x:Key="ShapeSize">60,75</av:Size>
-        <av:PointCollection x:Key="ConnectorLocation">510,77.5 510,109</av:PointCollection>
+        <av:PointCollection x:Key="ConnectorLocation">510,77.5 510,117</av:PointCollection>
         <x:Double x:Key="Width">805</x:Double>
-        <x:Double x:Key="Height">1234.0320000000002</x:Double>
+        <x:Double x:Key="Height">1251.5</x:Double>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID21</x:Reference>
+      <x:Reference>__ReferenceID7</x:Reference>
     </Flowchart.StartNode>
-    <FlowDecision x:Name="__ReferenceID0" Condition="[ApplicationFault]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
+    <FlowDecision x:Name="__ReferenceID0" Condition="[ApplicationFault]" DisplayName="Application Fault?" sap:VirtualizedContainerService.HintSize="101,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          <av:Point x:Key="ShapeLocation">470.5,246.5</av:Point>
-          <av:Size x:Key="ShapeSize">79,87</av:Size>
-          <av:PointCollection x:Key="TrueConnector">470.5,290 440.5,290 440.5,323.5 290,323.5 290,293.5</av:PointCollection>
-          <av:PointCollection x:Key="FalseConnector">549.5,290 570,290 570,344.5 510,344.5 510,374.5</av:PointCollection>
+          <av:Point x:Key="ShapeLocation">459.5,206.5</av:Point>
+          <av:Size x:Key="ShapeSize">101,87</av:Size>
+          <av:PointCollection x:Key="TrueConnector">459.5,250 429.5,250 429.5,343.5 300,343.5 300,313.5</av:PointCollection>
+          <av:PointCollection x:Key="FalseConnector">560.5,250 580,250 580,344.5 520,344.5 520,374.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <FlowDecision.True>
-        <FlowDecision x:Name="__ReferenceID3" Condition="[ApplicationErrorCount &gt; 2]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
+        <FlowDecision x:Name="__ReferenceID3" Condition="[ApplicationErrorCount &gt; 2]" DisplayName="Error Threshold Exceeded?" sap:VirtualizedContainerService.HintSize="144,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              <av:Point x:Key="ShapeLocation">250.5,206.5</av:Point>
-              <av:Size x:Key="ShapeSize">79,87</av:Size>
-              <av:PointCollection x:Key="FalseConnector">329.5,250 359.5,250 359.5,190 240,190 240,160</av:PointCollection>
-              <av:PointCollection x:Key="TrueConnector">250.5,250 200,250</av:PointCollection>
+              <av:Point x:Key="ShapeLocation">228,226.5</av:Point>
+              <av:Size x:Key="ShapeSize">144,87</av:Size>
+              <av:PointCollection x:Key="FalseConnector">372,270 400,270 400,210 220,210 220,180</av:PointCollection>
+              <av:PointCollection x:Key="TrueConnector">228,270 200,270</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <FlowDecision.True>
             <FlowStep x:Name="__ReferenceID11">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <av:Point x:Key="ShapeLocation">0,217</av:Point>
+                  <av:Point x:Key="ShapeLocation">0,237</av:Point>
                   <av:Size x:Key="ShapeSize">200,66</av:Size>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence DisplayName="Log Error and Stop Process" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_2">
+              <Sequence sap2010:Annotation.AnnotationText="If Error Threshold is exceeded, it will log the error and send an error e-mail back to the user." DisplayName="Log Error and Stop Process" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_2">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Error" Message="[&quot;Error: could not proceed with SAM Navigation&quot;]">
@@ -166,12 +167,12 @@
             <FlowStep x:Name="__ReferenceID4">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <av:Point x:Key="ShapeLocation">109,100</av:Point>
+                  <av:Point x:Key="ShapeLocation">89,120</av:Point>
                   <av:Size x:Key="ShapeSize">262,60</av:Size>
-                  <av:PointCollection x:Key="ConnectorLocation">371,130 401,130 401,190 410,190</av:PointCollection>
+                  <av:PointCollection x:Key="ConnectorLocation">351,150 410,150</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+              <Assign sap2010:Annotation.AnnotationText="Resets the boolean value and restarts the process." sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_1">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:Boolean">[ApplicationFault]</OutArgument>
                 </Assign.To>
@@ -181,6 +182,7 @@
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </Assign>
@@ -188,98 +190,45 @@
                 <FlowStep x:Name="__ReferenceID7">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <av:Point x:Key="ShapeLocation">410,157</av:Point>
+                      <av:Point x:Key="ShapeLocation">410,117</av:Point>
                       <av:Size x:Key="ShapeSize">200,66</av:Size>
-                      <av:PointCollection x:Key="ConnectorLocation">510,223 510,246.5</av:PointCollection>
+                      <av:PointCollection x:Key="ConnectorLocation">510,183 510,206.5</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Sequence DisplayName="Process SAM" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_1">
+                  <Sequence sap2010:Annotation.AnnotationText="Processes the SAM navigation and creates the formatted date used for file naming. If navigation faults, sets Application Fault to True." DisplayName="Process SAM" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_1">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="FormatDate.xaml">
+                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Creates and returns the current date as a string." DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="FormatDate.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
                         <OutArgument x:TypeArguments="x:String" x:Key="out_FormattedDate">[FormattedDate]</OutArgument>
                       </ui:InvokeWorkflowFile.Arguments>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
                     </ui:InvokeWorkflowFile>
-                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke openSAM workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="openSAM.xaml">
+                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Navigates the SAM portal, scraping information from the website into strings used for file creation." DisplayName="Invoke openSAM workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="openSAM.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
-                        <InArgument x:TypeArguments="x:String" x:Key="in_DUNSNumber">
-                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_DUNSNumber">
-                            <mva:VisualBasicValue.Result>
-                              <OutArgument x:TypeArguments="x:String" />
-                            </mva:VisualBasicValue.Result>
-                          </mva:VisualBasicValue>
-                        </InArgument>
-                        <OutArgument x:TypeArguments="x:String" x:Key="out_SAMRegistrationDetails">
-                          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="SAMRegistrationDetails">
-                            <mva:VisualBasicReference.Result>
-                              <OutArgument x:TypeArguments="Location(x:String)" />
-                            </mva:VisualBasicReference.Result>
-                          </mva:VisualBasicReference>
-                        </OutArgument>
-                        <OutArgument x:TypeArguments="x:String" x:Key="out_ExclusionRecords">
-                          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="ExclusionRecords">
-                            <mva:VisualBasicReference.Result>
-                              <OutArgument x:TypeArguments="Location(x:String)" />
-                            </mva:VisualBasicReference.Result>
-                          </mva:VisualBasicReference>
-                        </OutArgument>
-                        <OutArgument x:TypeArguments="x:String" x:Key="out_VendorAddress">
-                          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="VendorAddress">
-                            <mva:VisualBasicReference.Result>
-                              <OutArgument x:TypeArguments="Location(x:String)" />
-                            </mva:VisualBasicReference.Result>
-                          </mva:VisualBasicReference>
-                        </OutArgument>
-                        <OutArgument x:TypeArguments="x:String" x:Key="out_VendorName">
-                          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="VendorName">
-                            <mva:VisualBasicReference.Result>
-                              <OutArgument x:TypeArguments="Location(x:String)" />
-                            </mva:VisualBasicReference.Result>
-                          </mva:VisualBasicReference>
-                        </OutArgument>
-                        <OutArgument x:TypeArguments="x:String" x:Key="out_RepsAndCerts">
-                          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="RepsAndCerts">
-                            <mva:VisualBasicReference.Result>
-                              <OutArgument x:TypeArguments="Location(x:String)" />
-                            </mva:VisualBasicReference.Result>
-                          </mva:VisualBasicReference>
-                        </OutArgument>
-                        <OutArgument x:TypeArguments="x:String" x:Key="out_RecordDetails">
-                          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="RecordDetails">
-                            <mva:VisualBasicReference.Result>
-                              <OutArgument x:TypeArguments="Location(x:String)" />
-                            </mva:VisualBasicReference.Result>
-                          </mva:VisualBasicReference>
-                        </OutArgument>
-                        <InOutArgument x:TypeArguments="x:Int32" x:Key="io_ApplicationErrorCount">
-                          <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="ApplicationErrorCount">
-                            <mva:VisualBasicReference.Result>
-                              <OutArgument x:TypeArguments="Location(x:Int32)" />
-                            </mva:VisualBasicReference.Result>
-                          </mva:VisualBasicReference>
-                        </InOutArgument>
-                        <InOutArgument x:TypeArguments="x:Boolean" x:Key="io_ApplicationFault">
-                          <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="ApplicationFault">
-                            <mva:VisualBasicReference.Result>
-                              <OutArgument x:TypeArguments="Location(x:Boolean)" />
-                            </mva:VisualBasicReference.Result>
-                          </mva:VisualBasicReference>
-                        </InOutArgument>
-                        <OutArgument x:TypeArguments="x:String" x:Key="out_DoingBusinessAsName">
-                          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="DoingBusinessAsName">
-                            <mva:VisualBasicReference.Result>
-                              <OutArgument x:TypeArguments="Location(x:String)" />
-                            </mva:VisualBasicReference.Result>
-                          </mva:VisualBasicReference>
-                        </OutArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_DUNSNumber">[in_DUNSNumber]</InArgument>
+                        <OutArgument x:TypeArguments="x:String" x:Key="out_SAMRegistrationDetails">[SAMRegistrationDetails]</OutArgument>
+                        <OutArgument x:TypeArguments="x:String" x:Key="out_ExclusionRecords">[ExclusionRecords]</OutArgument>
+                        <OutArgument x:TypeArguments="x:String" x:Key="out_VendorAddress">[VendorAddress]</OutArgument>
+                        <OutArgument x:TypeArguments="x:String" x:Key="out_VendorName">[VendorName]</OutArgument>
+                        <OutArgument x:TypeArguments="x:String" x:Key="out_RepsAndCerts">[RepsAndCerts]</OutArgument>
+                        <OutArgument x:TypeArguments="x:String" x:Key="out_RecordDetails">[RecordDetails]</OutArgument>
+                        <InOutArgument x:TypeArguments="x:Int32" x:Key="io_ApplicationErrorCount">[ApplicationErrorCount]</InOutArgument>
+                        <InOutArgument x:TypeArguments="x:Boolean" x:Key="io_ApplicationFault">[ApplicationFault]</InOutArgument>
+                        <OutArgument x:TypeArguments="x:String" x:Key="out_DoingBusinessAsName">[DoingBusinessAsName]</OutArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:InvokeWorkflowFile>
@@ -297,12 +246,12 @@
         <FlowStep x:Name="__ReferenceID1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <av:Point x:Key="ShapeLocation">410,374.5</av:Point>
+              <av:Point x:Key="ShapeLocation">420,374.5</av:Point>
               <av:Size x:Key="ShapeSize">200,51</av:Size>
-              <av:PointCollection x:Key="ConnectorLocation">510,425.5 510,476.5</av:PointCollection>
+              <av:PointCollection x:Key="ConnectorLocation">520,425.5 520,455.5 521,455.5 521,476.5</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Process FAPIIS" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="OpenFAPIIS.xaml">
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Navigates to the FAPIIS portal and collects the required information." DisplayName="Process FAPIIS" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="OpenFAPIIS.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="x:String" x:Key="in_DUNSNumber">[in_DUNSNumber]</InArgument>
               <OutArgument x:TypeArguments="x:String" x:Key="out_FAPIISRecords">[FAPIISRecords]</OutArgument>
@@ -310,33 +259,34 @@
               <InOutArgument x:TypeArguments="x:Int32" x:Key="io_ApplicationErrorCount">[ApplicationErrorCount]</InOutArgument>
               <InOutArgument x:TypeArguments="x:Boolean" x:Key="io_ApplicationFault">[ApplicationFault]</InOutArgument>
               <InArgument x:TypeArguments="x:String" x:Key="in_FormattedDate">[FormattedDate]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_DataFolderPath">[DataFolderPath]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_DataFolderPath">[in_DataFolderPath]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeWorkflowFile>
           <FlowStep.Next>
-            <FlowDecision x:Name="__ReferenceID8" Condition="[ApplicationFault]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_4">
+            <FlowDecision x:Name="__ReferenceID8" Condition="[ApplicationFault]" DisplayName="Application Fault?" sap:VirtualizedContainerService.HintSize="101,87" sap2010:WorkflowViewState.IdRef="FlowDecision_4">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <av:Point x:Key="ShapeLocation">470.5,476.5</av:Point>
-                  <av:Size x:Key="ShapeSize">79,87</av:Size>
-                  <av:PointCollection x:Key="FalseConnector">549.5,520 570,520 570,594.5 510,594.5 510,624.5</av:PointCollection>
-                  <av:PointCollection x:Key="TrueConnector">470.5,520 440.5,520 440.5,603.5 270,603.5 270,573.5</av:PointCollection>
+                  <av:Size x:Key="ShapeSize">101,87</av:Size>
+                  <av:PointCollection x:Key="FalseConnector">571.5,520 601.5,520 601.5,594.5 520,594.5 520,624.5</av:PointCollection>
+                  <av:PointCollection x:Key="TrueConnector">470.5,520 440.5,520 440.5,603.5 302.5,603.5 302.5,573.5</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <FlowDecision.True>
-                <FlowDecision x:Name="__ReferenceID9" Condition="[ApplicationErrorCount &gt; 2]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_5">
+                <FlowDecision x:Name="__ReferenceID9" Condition="[ApplicationErrorCount &gt; 2]" DisplayName="Error Threshold Exceeded?" sap:VirtualizedContainerService.HintSize="144,87" sap2010:WorkflowViewState.IdRef="FlowDecision_5">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <av:Point x:Key="ShapeLocation">230.5,486.5</av:Point>
-                      <av:Size x:Key="ShapeSize">79,87</av:Size>
-                      <av:PointCollection x:Key="FalseConnector">309.5,530 320,530 320,460 140,460 140,430</av:PointCollection>
+                      <av:Size x:Key="ShapeSize">144,87</av:Size>
+                      <av:PointCollection x:Key="FalseConnector">374.5,530 404.5,530 404.5,460 140,460 140,430</av:PointCollection>
                       <av:PointCollection x:Key="TrueConnector">230.5,530 200,530</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
@@ -348,10 +298,11 @@
                           <av:Size x:Key="ShapeSize">200,66</av:Size>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Sequence DisplayName="Log Error and Stop Process" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                      <Sequence sap2010:Annotation.AnnotationText="If Error Threshold is exceeded, it will log the error and send an error e-mail back to the user." DisplayName="Log Error and Stop Process" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_3">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Error" Message="[&quot;Error: could not proceed with SAM Navigation&quot;]">
@@ -376,10 +327,10 @@
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <av:Point x:Key="ShapeLocation">9,370</av:Point>
                           <av:Size x:Key="ShapeSize">262,60</av:Size>
-                          <av:PointCollection x:Key="ConnectorLocation">271,400 410,400</av:PointCollection>
+                          <av:PointCollection x:Key="ConnectorLocation">271,400 420,400</av:PointCollection>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+                      <Assign sap2010:Annotation.AnnotationText="Resets the boolean value and restarts the process." sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_2">
                         <Assign.To>
                           <OutArgument x:TypeArguments="x:Boolean">[ApplicationFault]</OutArgument>
                         </Assign.To>
@@ -389,6 +340,7 @@
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </Assign>
@@ -403,117 +355,63 @@
                 <FlowStep x:Name="__ReferenceID2">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <av:Point x:Key="ShapeLocation">410,624.5</av:Point>
+                      <av:Point x:Key="ShapeLocation">420,624.5</av:Point>
                       <av:Size x:Key="ShapeSize">200,51</av:Size>
-                      <av:PointCollection x:Key="ConnectorLocation">510,675.5 510,706.5</av:PointCollection>
+                      <av:PointCollection x:Key="ConnectorLocation">520,675.5 520,705.5 521,705.5 521,706.5</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Verify VIP" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="VIPVerification.xaml">
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Navigates to the VIP portal and collects required information." DisplayName="Verify VIP" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="VIPVerification.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_DUNSNumber">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_DUNSNumber">
-                          <mva:VisualBasicValue.Result>
-                            <OutArgument x:TypeArguments="x:String" />
-                          </mva:VisualBasicValue.Result>
-                        </mva:VisualBasicValue>
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_FormattedDate">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="FormattedDate">
-                          <mva:VisualBasicValue.Result>
-                            <OutArgument x:TypeArguments="x:String" />
-                          </mva:VisualBasicValue.Result>
-                        </mva:VisualBasicValue>
-                      </InArgument>
-                      <OutArgument x:TypeArguments="x:String" x:Key="out_VIPDetails">
-                        <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="VIPDetails">
-                          <mva:VisualBasicReference.Result>
-                            <OutArgument x:TypeArguments="Location(x:String)" />
-                          </mva:VisualBasicReference.Result>
-                        </mva:VisualBasicReference>
-                      </OutArgument>
-                      <InOutArgument x:TypeArguments="x:Int32" x:Key="io_ApplicationErrorCount">
-                        <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="ApplicationErrorCount">
-                          <mva:VisualBasicReference.Result>
-                            <OutArgument x:TypeArguments="Location(x:Int32)" />
-                          </mva:VisualBasicReference.Result>
-                        </mva:VisualBasicReference>
-                      </InOutArgument>
-                      <InOutArgument x:TypeArguments="x:Boolean" x:Key="io_ApplicationFault">
-                        <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="ApplicationFault">
-                          <mva:VisualBasicReference.Result>
-                            <OutArgument x:TypeArguments="Location(x:Boolean)" />
-                          </mva:VisualBasicReference.Result>
-                        </mva:VisualBasicReference>
-                      </InOutArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_DataFolderPath">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="DataFolderPath">
-                          <mva:VisualBasicValue.Result>
-                            <OutArgument x:TypeArguments="x:String" />
-                          </mva:VisualBasicValue.Result>
-                        </mva:VisualBasicValue>
-                      </InArgument>
-                      <OutArgument x:TypeArguments="x:String" x:Key="out_VIPVerified">
-                        <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="VIPVerified">
-                          <mva:VisualBasicReference.Result>
-                            <OutArgument x:TypeArguments="Location(x:String)" />
-                          </mva:VisualBasicReference.Result>
-                        </mva:VisualBasicReference>
-                      </OutArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_DUNSNumber">[in_DUNSNumber]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_FormattedDate">[FormattedDate]</InArgument>
+                      <OutArgument x:TypeArguments="x:String" x:Key="out_VIPDetails">[VIPDetails]</OutArgument>
+                      <InOutArgument x:TypeArguments="x:Int32" x:Key="io_ApplicationErrorCount">[ApplicationErrorCount]</InOutArgument>
+                      <InOutArgument x:TypeArguments="x:Boolean" x:Key="io_ApplicationFault">[ApplicationFault]</InOutArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_DataFolderPath">[in_DataFolderPath]</InArgument>
+                      <OutArgument x:TypeArguments="x:String" x:Key="out_VIPVerified">[VIPVerified]</OutArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:InvokeWorkflowFile>
                   <FlowStep.Next>
-                    <FlowDecision x:Name="__ReferenceID17" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_7">
-                      <FlowDecision.Condition>
-                        <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="ApplicationFault">
-                          <mva:VisualBasicValue.Result>
-                            <OutArgument x:TypeArguments="x:Boolean" />
-                          </mva:VisualBasicValue.Result>
-                        </mva:VisualBasicValue>
-                      </FlowDecision.Condition>
+                    <FlowDecision x:Name="__ReferenceID16" Condition="[ApplicationFault]" DisplayName="Application Fault?" sap:VirtualizedContainerService.HintSize="101,87" sap2010:WorkflowViewState.IdRef="FlowDecision_7">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           <av:Point x:Key="ShapeLocation">470.5,706.5</av:Point>
-                          <av:Size x:Key="ShapeSize">79,87</av:Size>
-                          <av:PointCollection x:Key="TrueConnector">470.5,750 440.5,750 440.5,863.5 320,863.5 320,833.5</av:PointCollection>
-                          <av:PointCollection x:Key="FalseConnector">549.5,750 599.5,750</av:PointCollection>
+                          <av:Size x:Key="ShapeSize">101,87</av:Size>
+                          <av:PointCollection x:Key="TrueConnector">470.5,750 440.5,750 440.5,863.5 310,863.5 310,833.5</av:PointCollection>
+                          <av:PointCollection x:Key="FalseConnector">571.5,750 599.5,750</av:PointCollection>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <FlowDecision.True>
-                        <FlowDecision x:Name="__ReferenceID18" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_6">
-                          <FlowDecision.Condition>
-                            <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="ApplicationErrorCount &gt; 2">
-                              <mva:VisualBasicValue.Result>
-                                <OutArgument x:TypeArguments="x:Boolean" />
-                              </mva:VisualBasicValue.Result>
-                            </mva:VisualBasicValue>
-                          </FlowDecision.Condition>
+                        <FlowDecision x:Name="__ReferenceID17" Condition="[ApplicationErrorCount &gt; 2]" DisplayName="Error Threshold Exceeded?" sap:VirtualizedContainerService.HintSize="144,87" sap2010:WorkflowViewState.IdRef="FlowDecision_6">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                              <av:Point x:Key="ShapeLocation">280.5,746.5</av:Point>
-                              <av:Size x:Key="ShapeSize">79,87</av:Size>
-                              <av:PointCollection x:Key="TrueConnector">280.5,790 200,790</av:PointCollection>
-                              <av:PointCollection x:Key="FalseConnector">359.5,790 380,790 380,710 140,710 140,680</av:PointCollection>
+                              <av:Point x:Key="ShapeLocation">238,746.5</av:Point>
+                              <av:Size x:Key="ShapeSize">144,87</av:Size>
+                              <av:PointCollection x:Key="TrueConnector">238,790 200,790</av:PointCollection>
+                              <av:PointCollection x:Key="FalseConnector">382,790 410,790 410,710 140,710 140,680</av:PointCollection>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <FlowDecision.True>
-                            <FlowStep x:Name="__ReferenceID19">
+                            <FlowStep x:Name="__ReferenceID18">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <av:Point x:Key="ShapeLocation">0,757</av:Point>
                                   <av:Size x:Key="ShapeSize">200,66</av:Size>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <Sequence DisplayName="Log Error and Stop Process" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                              <Sequence sap2010:Annotation.AnnotationText="If Error Threshold is exceeded, it will log the error and send an error e-mail back to the user." DisplayName="Log Error and Stop Process" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_4">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                                 <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Error" Message="[&quot;Error: could not proceed with SAM Navigation&quot;]">
@@ -533,15 +431,15 @@
                             </FlowStep>
                           </FlowDecision.True>
                           <FlowDecision.False>
-                            <FlowStep x:Name="__ReferenceID20">
+                            <FlowStep x:Name="__ReferenceID19">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <av:Point x:Key="ShapeLocation">9,620</av:Point>
                                   <av:Size x:Key="ShapeSize">262,60</av:Size>
-                                  <av:PointCollection x:Key="ConnectorLocation">271,650 410,650</av:PointCollection>
+                                  <av:PointCollection x:Key="ConnectorLocation">271,650 420,650</av:PointCollection>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+                              <Assign sap2010:Annotation.AnnotationText="Resets the boolean value and restarts the process." sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_3">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="x:Boolean">[ApplicationFault]</OutArgument>
                                 </Assign.To>
@@ -551,6 +449,7 @@
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </Assign>
@@ -562,7 +461,7 @@
                         </FlowDecision>
                       </FlowDecision.True>
                       <FlowDecision.False>
-                        <FlowStep x:Name="__ReferenceID14">
+                        <FlowStep x:Name="__ReferenceID13">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <av:Point x:Key="ShapeLocation">599.5,724.5</av:Point>
@@ -570,38 +469,21 @@
                               <av:PointCollection x:Key="ConnectorLocation">699.5,775.5 699.5,825.5</av:PointCollection>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Perform SEWVP Search" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="SEWPVPerformanceSearch.xaml">
+                          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Checks the locally stored SEWVP file to determine whether the company is SEWVP verified. If it is, program performance of the company is saved as well." DisplayName="Perform SEWPV Search" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="SEWPVPerformanceSearch.xaml">
                             <ui:InvokeWorkflowFile.Arguments>
-                              <InArgument x:TypeArguments="x:String" x:Key="in_DoingBusinessAsName">
-                                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="DoingBusinessAsName">
-                                  <mva:VisualBasicValue.Result>
-                                    <OutArgument x:TypeArguments="x:String" />
-                                  </mva:VisualBasicValue.Result>
-                                </mva:VisualBasicValue>
-                              </InArgument>
-                              <InArgument x:TypeArguments="x:String" x:Key="in_VendorName">
-                                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="VendorName">
-                                  <mva:VisualBasicValue.Result>
-                                    <OutArgument x:TypeArguments="x:String" />
-                                  </mva:VisualBasicValue.Result>
-                                </mva:VisualBasicValue>
-                              </InArgument>
-                              <OutArgument x:TypeArguments="x:String" x:Key="out_SEWPVReport">
-                                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="SEWPVReport">
-                                  <mva:VisualBasicReference.Result>
-                                    <OutArgument x:TypeArguments="Location(x:String)" />
-                                  </mva:VisualBasicReference.Result>
-                                </mva:VisualBasicReference>
-                              </OutArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_DoingBusinessAsName">[DoingBusinessAsName]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_VendorName">[VendorName]</InArgument>
+                              <OutArgument x:TypeArguments="x:String" x:Key="out_SEWPVReport">[SEWPVReport]</OutArgument>
                             </ui:InvokeWorkflowFile.Arguments>
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                           </ui:InvokeWorkflowFile>
                           <FlowStep.Next>
-                            <FlowStep x:Name="__ReferenceID16">
+                            <FlowStep x:Name="__ReferenceID15">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <av:Point x:Key="ShapeLocation">599.5,825.5</av:Point>
@@ -609,38 +491,21 @@
                                   <av:PointCollection x:Key="ConnectorLocation">699.5,876.5 699.5,926.5</av:PointCollection>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Verify VETS" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="VETS4212Verification.xaml">
+                              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Check the locally stored VETS file if the company is VETS verified." DisplayName="Verify VETS" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="VETS4212Verification.xaml">
                                 <ui:InvokeWorkflowFile.Arguments>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_DoingBusinessAsName">
-                                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="DoingBusinessAsName">
-                                      <mva:VisualBasicValue.Result>
-                                        <OutArgument x:TypeArguments="x:String" />
-                                      </mva:VisualBasicValue.Result>
-                                    </mva:VisualBasicValue>
-                                  </InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_VendorName">
-                                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="VendorName">
-                                      <mva:VisualBasicValue.Result>
-                                        <OutArgument x:TypeArguments="x:String" />
-                                      </mva:VisualBasicValue.Result>
-                                    </mva:VisualBasicValue>
-                                  </InArgument>
-                                  <OutArgument x:TypeArguments="x:String" x:Key="out_VETSVerification">
-                                    <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="VETSVerification">
-                                      <mva:VisualBasicReference.Result>
-                                        <OutArgument x:TypeArguments="Location(x:String)" />
-                                      </mva:VisualBasicReference.Result>
-                                    </mva:VisualBasicReference>
-                                  </OutArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_DoingBusinessAsName">[DoingBusinessAsName]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_VendorName">[VendorName]</InArgument>
+                                  <OutArgument x:TypeArguments="x:String" x:Key="out_VETSVerification">[VETSVerification]</OutArgument>
                                 </ui:InvokeWorkflowFile.Arguments>
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </ui:InvokeWorkflowFile>
                               <FlowStep.Next>
-                                <FlowStep x:Name="__ReferenceID15">
+                                <FlowStep x:Name="__ReferenceID14">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <av:Point x:Key="ShapeLocation">599.5,926.5</av:Point>
@@ -648,33 +513,16 @@
                                       <av:PointCollection x:Key="ConnectorLocation">699.5,977.5 699.5,1027.5</av:PointCollection>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Get EEO Report" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="GetEEODetails.xaml">
+                                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Checks the online EEO database to verify whether the company is EEO verified." DisplayName="Get EEO Report" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="GetEEODetails.xaml">
                                     <ui:InvokeWorkflowFile.Arguments>
-                                      <OutArgument x:TypeArguments="x:String" x:Key="out_EEOReport">
-                                        <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="EEOReport">
-                                          <mva:VisualBasicReference.Result>
-                                            <OutArgument x:TypeArguments="Location(x:String)" />
-                                          </mva:VisualBasicReference.Result>
-                                        </mva:VisualBasicReference>
-                                      </OutArgument>
-                                      <InArgument x:TypeArguments="x:String" x:Key="in_DoingBusinessAsName">
-                                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="DoingBusinessAsName">
-                                          <mva:VisualBasicValue.Result>
-                                            <OutArgument x:TypeArguments="x:String" />
-                                          </mva:VisualBasicValue.Result>
-                                        </mva:VisualBasicValue>
-                                      </InArgument>
-                                      <InArgument x:TypeArguments="x:String" x:Key="in_VendorName">
-                                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="VendorName">
-                                          <mva:VisualBasicValue.Result>
-                                            <OutArgument x:TypeArguments="x:String" />
-                                          </mva:VisualBasicValue.Result>
-                                        </mva:VisualBasicValue>
-                                      </InArgument>
+                                      <OutArgument x:TypeArguments="x:String" x:Key="out_EEOReport">[EEOReport]</OutArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="in_DoingBusinessAsName">[DoingBusinessAsName]</InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="in_VendorName">[VendorName]</InArgument>
                                     </ui:InvokeWorkflowFile.Arguments>
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
                                   </ui:InvokeWorkflowFile>
@@ -687,7 +535,7 @@
                                           <av:PointCollection x:Key="ConnectorLocation">699.5,1078.5 699.5,1128.5</av:PointCollection>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Create Attachments" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="CreateAttachments.xaml">
+                                      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Creates files using information scraped from SAM portal and creates a zip file containing all of the DUNS number company's files that will be used as attachment to the output e-mail." DisplayName="Create Attachments" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="CreateAttachments.xaml">
                                         <ui:InvokeWorkflowFile.Arguments>
                                           <InArgument x:TypeArguments="x:String" x:Key="in_DUNSNumber">[in_DUNSNumber]</InArgument>
                                           <OutArgument x:TypeArguments="x:String" x:Key="out_RecordDetailsFilePath">[RecordDetailsFilePath]</OutArgument>
@@ -699,11 +547,12 @@
                                           <InArgument x:TypeArguments="x:String" x:Key="in_FormattedDate">[FormattedDate]</InArgument>
                                           <OutArgument x:TypeArguments="x:String" x:Key="out_FAPIISRecordsFilePath">[FAPIISRecordsFilePath]</OutArgument>
                                           <InArgument x:TypeArguments="x:String" x:Key="in_FAPIISFile">[FAPIISFile]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="in_DataFolderPath">[DataFolderPath]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_DataFolderPath">[in_DataFolderPath]</InArgument>
                                         </ui:InvokeWorkflowFile.Arguments>
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
                                       </ui:InvokeWorkflowFile>
@@ -713,129 +562,31 @@
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                               <av:Point x:Key="ShapeLocation">599.5,1128.5</av:Point>
                                               <av:Size x:Key="ShapeSize">200,51</av:Size>
-                                              <av:PointCollection x:Key="ConnectorLocation">599.5,1154 549.5,1154</av:PointCollection>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
-                                          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Send Inquiry Email" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="SendEmail.xaml">
+                                          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Sends the output e-mail back to the sender who requested the DUNS number check." DisplayName="Send Inquiry Email" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="SendEmail.xaml">
                                             <ui:InvokeWorkflowFile.Arguments>
-                                              <InArgument x:TypeArguments="x:String" x:Key="in_Sender">
-                                                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Sender">
-                                                  <mva:VisualBasicValue.Result>
-                                                    <OutArgument x:TypeArguments="x:String" />
-                                                  </mva:VisualBasicValue.Result>
-                                                </mva:VisualBasicValue>
-                                              </InArgument>
-                                              <InArgument x:TypeArguments="x:String" x:Key="in_DUNSNumber">
-                                                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_DUNSNumber">
-                                                  <mva:VisualBasicValue.Result>
-                                                    <OutArgument x:TypeArguments="x:String" />
-                                                  </mva:VisualBasicValue.Result>
-                                                </mva:VisualBasicValue>
-                                              </InArgument>
-                                              <InArgument x:TypeArguments="x:String" x:Key="in_VendorName">
-                                                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="VendorName">
-                                                  <mva:VisualBasicValue.Result>
-                                                    <OutArgument x:TypeArguments="x:String" />
-                                                  </mva:VisualBasicValue.Result>
-                                                </mva:VisualBasicValue>
-                                              </InArgument>
-                                              <InArgument x:TypeArguments="x:String" x:Key="in_VendorAddress">
-                                                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="VendorAddress">
-                                                  <mva:VisualBasicValue.Result>
-                                                    <OutArgument x:TypeArguments="x:String" />
-                                                  </mva:VisualBasicValue.Result>
-                                                </mva:VisualBasicValue>
-                                              </InArgument>
-                                              <InArgument x:TypeArguments="x:String" x:Key="in_ExclusionRecords">
-                                                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="ExclusionRecords">
-                                                  <mva:VisualBasicValue.Result>
-                                                    <OutArgument x:TypeArguments="x:String" />
-                                                  </mva:VisualBasicValue.Result>
-                                                </mva:VisualBasicValue>
-                                              </InArgument>
-                                              <InArgument x:TypeArguments="x:String" x:Key="in_FormattedDate">
-                                                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="FormattedDate">
-                                                  <mva:VisualBasicValue.Result>
-                                                    <OutArgument x:TypeArguments="x:String" />
-                                                  </mva:VisualBasicValue.Result>
-                                                </mva:VisualBasicValue>
-                                              </InArgument>
-                                              <InArgument x:TypeArguments="x:String" x:Key="in_FAPIISRecords">
-                                                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="FAPIISRecords">
-                                                  <mva:VisualBasicValue.Result>
-                                                    <OutArgument x:TypeArguments="x:String" />
-                                                  </mva:VisualBasicValue.Result>
-                                                </mva:VisualBasicValue>
-                                              </InArgument>
-                                              <InArgument x:TypeArguments="x:String" x:Key="in_BotEmailAddress">
-                                                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_BotEmailAddress">
-                                                  <mva:VisualBasicValue.Result>
-                                                    <OutArgument x:TypeArguments="x:String" />
-                                                  </mva:VisualBasicValue.Result>
-                                                </mva:VisualBasicValue>
-                                              </InArgument>
-                                              <InArgument x:TypeArguments="x:String" x:Key="in_DataFolderPath">
-                                                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="DataFolderPath">
-                                                  <mva:VisualBasicValue.Result>
-                                                    <OutArgument x:TypeArguments="x:String" />
-                                                  </mva:VisualBasicValue.Result>
-                                                </mva:VisualBasicValue>
-                                              </InArgument>
-                                              <InArgument x:TypeArguments="x:String" x:Key="in_SEWPVReport">
-                                                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="SEWPVReport">
-                                                  <mva:VisualBasicValue.Result>
-                                                    <OutArgument x:TypeArguments="x:String" />
-                                                  </mva:VisualBasicValue.Result>
-                                                </mva:VisualBasicValue>
-                                              </InArgument>
-                                              <InArgument x:TypeArguments="x:String" x:Key="in_EEOReport">
-                                                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="EEOReport">
-                                                  <mva:VisualBasicValue.Result>
-                                                    <OutArgument x:TypeArguments="x:String" />
-                                                  </mva:VisualBasicValue.Result>
-                                                </mva:VisualBasicValue>
-                                              </InArgument>
-                                              <InArgument x:TypeArguments="x:String" x:Key="in_VETSVerification">
-                                                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="VETSVerification">
-                                                  <mva:VisualBasicValue.Result>
-                                                    <OutArgument x:TypeArguments="x:String" />
-                                                  </mva:VisualBasicValue.Result>
-                                                </mva:VisualBasicValue>
-                                              </InArgument>
-                                              <InArgument x:TypeArguments="x:String" x:Key="in_VIPVerified">
-                                                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="VIPVerified">
-                                                  <mva:VisualBasicValue.Result>
-                                                    <OutArgument x:TypeArguments="x:String" />
-                                                  </mva:VisualBasicValue.Result>
-                                                </mva:VisualBasicValue>
-                                              </InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_Sender">[in_Sender]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_DUNSNumber">[in_DUNSNumber]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_VendorName">[VendorName]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_VendorAddress">[VendorAddress]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_ExclusionRecords">[ExclusionRecords]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_FormattedDate">[FormattedDate]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_FAPIISRecords">[FAPIISRecords]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_BotEmailAddress">[in_BotEmailAddress]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_DataFolderPath">[in_DataFolderPath]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_VIPVerified">[VIPVerified]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_EEOReport">[EEOReport]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_VETSVerification">[VETSVerification]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_SEWPVReport">[SEWPVReport]</InArgument>
                                             </ui:InvokeWorkflowFile.Arguments>
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
                                           </ui:InvokeWorkflowFile>
-                                          <FlowStep.Next>
-                                            <FlowStep x:Name="__ReferenceID13">
-                                              <sap:WorkflowViewStateService.ViewState>
-                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                  <av:Point x:Key="ShapeLocation">349.5,1128.5</av:Point>
-                                                  <av:Size x:Key="ShapeSize">200,51</av:Size>
-                                                </scg:Dictionary>
-                                              </sap:WorkflowViewStateService.ViewState>
-                                              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Delete Sent Files From Folder" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="DeleteSentFiles.xaml">
-                                                <ui:InvokeWorkflowFile.Arguments>
-                                                  <InArgument x:TypeArguments="x:String" x:Key="in_DataFolderPath">[DataFolderPath]</InArgument>
-                                                </ui:InvokeWorkflowFile.Arguments>
-                                                <sap:WorkflowViewStateService.ViewState>
-                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                  </scg:Dictionary>
-                                                </sap:WorkflowViewStateService.ViewState>
-                                              </ui:InvokeWorkflowFile>
-                                            </FlowStep>
-                                          </FlowStep.Next>
                                         </FlowStep>
                                       </FlowStep.Next>
                                     </FlowStep>
@@ -867,35 +618,12 @@
     <x:Reference>__ReferenceID11</x:Reference>
     <x:Reference>__ReferenceID12</x:Reference>
     <x:Reference>__ReferenceID13</x:Reference>
-    <FlowStep x:Name="__ReferenceID21">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">410,109</av:Point>
-          <av:Size x:Key="ShapeSize">200,22</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">510,131 510,157</av:PointCollection>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="OutputFilePath" DisplayName="Get Asset" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1">
-        <ui:GetRobotAsset.Value>
-          <OutArgument x:TypeArguments="x:String">[DataFolderPath]</OutArgument>
-        </ui:GetRobotAsset.Value>
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </ui:GetRobotAsset>
-      <FlowStep.Next>
-        <x:Reference>__ReferenceID7</x:Reference>
-      </FlowStep.Next>
-    </FlowStep>
     <x:Reference>__ReferenceID14</x:Reference>
     <x:Reference>__ReferenceID15</x:Reference>
-    <x:Reference>__ReferenceID16</x:Reference>
     <x:Reference>__ReferenceID2</x:Reference>
+    <x:Reference>__ReferenceID16</x:Reference>
     <x:Reference>__ReferenceID17</x:Reference>
     <x:Reference>__ReferenceID18</x:Reference>
     <x:Reference>__ReferenceID19</x:Reference>
-    <x:Reference>__ReferenceID20</x:Reference>
   </Flowchart>
 </Activity>

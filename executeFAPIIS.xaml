@@ -58,7 +58,6 @@
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="executeFAPIIS" sap:VirtualizedContainerService.HintSize="518,655" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -88,7 +87,7 @@
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:GetFullText DisplayName="Get Full Text 'TABLE  summary_table'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetFullText_2" IgnoreHidden="False">
+              <ui:GetFullText sap2010:Annotation.AnnotationText="Scrapes the FAPIIS records and saves them into a String." DisplayName="Get Full Text 'TABLE  summary_table'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetFullText_2" IgnoreHidden="False">
                 <ui:GetFullText.Target>
                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="2c280013b749983d6d5707a29e4ed932" Selector="&lt;webctrl id='summary_table' tag='TABLE' /&gt;" WaitForReady="COMPLETE">
                     <ui:Target.TimeoutMS>
@@ -99,8 +98,13 @@
                 <ui:GetFullText.Text>
                   <OutArgument x:TypeArguments="x:String">[out_FAPIISRecords]</OutArgument>
                 </ui:GetFullText.Text>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
               </ui:GetFullText>
-              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="SaveFAPIISDetails.xaml">
+              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Invokes PDF file saving execution." DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="SaveFAPIISDetails.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
                   <InArgument x:TypeArguments="x:String" x:Key="in_DUNSNumber">[in_DUNSNumber]</InArgument>
                   <OutArgument x:TypeArguments="x:String" x:Key="out_FAPIISFile">[out_FAPIISFile]</OutArgument>
@@ -109,6 +113,11 @@
                   <InArgument x:TypeArguments="x:String" x:Key="in_FormattedDate">[in_FormattedDate]</InArgument>
                   <InArgument x:TypeArguments="x:String" x:Key="in_DataFolderPath">[in_DataFolderPath]</InArgument>
                 </ui:InvokeWorkflowFile.Arguments>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
               </ui:InvokeWorkflowFile>
             </Sequence>
           </ActivityAction>

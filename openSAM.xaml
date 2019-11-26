@@ -14,7 +14,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>652,1399</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>652,1426</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>openSAM_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -61,37 +61,43 @@
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="openSAM" sap:VirtualizedContainerService.HintSize="632,1339" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="openSAM" sap:VirtualizedContainerService.HintSize="632,1366" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="590,1247" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="590,1274" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Variables>
         <Variable x:TypeArguments="x:Boolean" Default="False" Name="ApplicationFault" />
       </TryCatch.Variables>
       <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="552,1020" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <Sequence sap:VirtualizedContainerService.HintSize="552,1047" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:KillProcess ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="510,22" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="iexplore" />
-          <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="510,866" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="https://www.sam.gov/SAM/pages/public/searchRecords/search.jsf">
+          <ui:KillProcess ContinueOnError="{x:Null}" Process="{x:Null}" sap2010:Annotation.AnnotationText="Kills the Internet Explorer process before the start of execution." DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="510,22" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="iexplore">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:KillProcess>
+          <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" sap2010:Annotation.AnnotationText="Opens the SAM portal link using Internet Explorer." BrowserType="IE" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="510,893" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="https://www.sam.gov/SAM/pages/public/searchRecords/search.jsf">
             <ui:OpenBrowser.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="476,767" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <Sequence sap2010:Annotation.AnnotationText="Types the DUNS number into the search field, clicks 'Search', and invokes the execution workflow file when the process navigates to next page." DisplayName="Do" sap:VirtualizedContainerService.HintSize="476,767" sap2010:WorkflowViewState.IdRef="Sequence_2">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBetweenKeys="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DelayBefore="200" DelayMS="200" DisplayName="Type Into DUNS Number Search" sap:VirtualizedContainerService.HintSize="434,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[in_DUNSNumber]">
@@ -136,72 +142,23 @@
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="executeSAM.xaml">
+                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Continues the execution upon the successful input of the DUNS number into the search field." DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="executeSAM.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
-                            <OutArgument x:TypeArguments="x:String" x:Key="out_SAMRegistrationDetails">
-                              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_SAMRegistrationDetails">
-                                <mva:VisualBasicReference.Result>
-                                  <OutArgument x:TypeArguments="Location(x:String)" />
-                                </mva:VisualBasicReference.Result>
-                              </mva:VisualBasicReference>
-                            </OutArgument>
-                            <OutArgument x:TypeArguments="x:String" x:Key="out_ExclusionRecords">
-                              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_ExclusionRecords">
-                                <mva:VisualBasicReference.Result>
-                                  <OutArgument x:TypeArguments="Location(x:String)" />
-                                </mva:VisualBasicReference.Result>
-                              </mva:VisualBasicReference>
-                            </OutArgument>
-                            <OutArgument x:TypeArguments="x:String" x:Key="out_VendorAddress">
-                              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_VendorAddress">
-                                <mva:VisualBasicReference.Result>
-                                  <OutArgument x:TypeArguments="Location(x:String)" />
-                                </mva:VisualBasicReference.Result>
-                              </mva:VisualBasicReference>
-                            </OutArgument>
-                            <OutArgument x:TypeArguments="x:String" x:Key="out_VendorName">
-                              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_VendorName">
-                                <mva:VisualBasicReference.Result>
-                                  <OutArgument x:TypeArguments="Location(x:String)" />
-                                </mva:VisualBasicReference.Result>
-                              </mva:VisualBasicReference>
-                            </OutArgument>
-                            <OutArgument x:TypeArguments="x:String" x:Key="out_RepsAndCerts">
-                              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_RepsAndCerts">
-                                <mva:VisualBasicReference.Result>
-                                  <OutArgument x:TypeArguments="Location(x:String)" />
-                                </mva:VisualBasicReference.Result>
-                              </mva:VisualBasicReference>
-                            </OutArgument>
-                            <OutArgument x:TypeArguments="x:String" x:Key="out_RecordDetails">
-                              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_RecordDetails">
-                                <mva:VisualBasicReference.Result>
-                                  <OutArgument x:TypeArguments="Location(x:String)" />
-                                </mva:VisualBasicReference.Result>
-                              </mva:VisualBasicReference>
-                            </OutArgument>
-                            <InOutArgument x:TypeArguments="x:Boolean" x:Key="io_ApplicationFault">
-                              <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="io_ApplicationFault">
-                                <mva:VisualBasicReference.Result>
-                                  <OutArgument x:TypeArguments="Location(x:Boolean)" />
-                                </mva:VisualBasicReference.Result>
-                              </mva:VisualBasicReference>
-                            </InOutArgument>
-                            <InOutArgument x:TypeArguments="x:Int32" x:Key="io_ApplicationErrorCount">
-                              <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="io_ApplicationErrorCount">
-                                <mva:VisualBasicReference.Result>
-                                  <OutArgument x:TypeArguments="Location(x:Int32)" />
-                                </mva:VisualBasicReference.Result>
-                              </mva:VisualBasicReference>
-                            </InOutArgument>
-                            <OutArgument x:TypeArguments="x:String" x:Key="out_DoingBusinessAsName">
-                              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_DoingBusinessAsName">
-                                <mva:VisualBasicReference.Result>
-                                  <OutArgument x:TypeArguments="Location(x:String)" />
-                                </mva:VisualBasicReference.Result>
-                              </mva:VisualBasicReference>
-                            </OutArgument>
+                            <OutArgument x:TypeArguments="x:String" x:Key="out_SAMRegistrationDetails">[out_SAMRegistrationDetails]</OutArgument>
+                            <OutArgument x:TypeArguments="x:String" x:Key="out_ExclusionRecords">[out_ExclusionRecords]</OutArgument>
+                            <OutArgument x:TypeArguments="x:String" x:Key="out_VendorAddress">[out_VendorAddress]</OutArgument>
+                            <OutArgument x:TypeArguments="x:String" x:Key="out_VendorName">[out_VendorName]</OutArgument>
+                            <OutArgument x:TypeArguments="x:String" x:Key="out_RepsAndCerts">[out_RepsAndCerts]</OutArgument>
+                            <OutArgument x:TypeArguments="x:String" x:Key="out_RecordDetails">[out_RecordDetails]</OutArgument>
+                            <InOutArgument x:TypeArguments="x:Boolean" x:Key="io_ApplicationFault">[io_ApplicationFault]</InOutArgument>
+                            <InOutArgument x:TypeArguments="x:Int32" x:Key="io_ApplicationErrorCount">[io_ApplicationErrorCount]</InOutArgument>
+                            <OutArgument x:TypeArguments="x:String" x:Key="out_DoingBusinessAsName">[out_DoingBusinessAsName]</OutArgument>
                           </ui:InvokeWorkflowFile.Arguments>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
                         </ui:InvokeWorkflowFile>
                       </Sequence>
                     </ui:OnUiElementAppear.Body>
@@ -219,6 +176,11 @@
                 </Sequence>
               </ActivityAction>
             </ui:OpenBrowser.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
           </ui:OpenBrowser>
         </Sequence>
       </TryCatch.Try>

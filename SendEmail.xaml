@@ -64,7 +64,6 @@
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="SendEmail" sap:VirtualizedContainerService.HintSize="480,715" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -78,21 +77,31 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="438,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="438,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="ExamineFAPIISRecords.xaml">
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Examine FAPIIS records and determine whether there is an issue in the FAPIIS records." DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="438,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="ExamineFAPIISRecords.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_FAPIISRecords">[in_FAPIISRecords]</InArgument>
         <OutArgument x:TypeArguments="x:String" x:Key="out_Summary">[Summary]</OutArgument>
         <OutArgument x:TypeArguments="x:String" x:Key="out_isIssueFound">[isIssueFound]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </ui:InvokeWorkflowFile>
     <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,372" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <ui:SendOutlookMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Account="[in_BotEmailAddress]" Body="[String.Format(&quot;DUNS#: {0}&quot; + Environment.NewLine + &quot;Vendor Name: {1}&quot; + Environment.NewLine + &quot;Vendor Address: {2}&quot; + Environment.NewLine + &quot;Active Exclusions (Yes/No): {3}&quot; + Environment.NewLine + &quot;Issues found in FAPIIS(e.g. Termination, Adverse Determination) (Yes/No): {4}&quot; + Environment.NewLine + &quot;SEWPV Contractor: {5}&quot; + Environment.NewLine + &quot;EEO Verified: {6}&quot; + Environment.NewLine + &quot;VIP Verified: {7}&quot; + Environment.NewLine + &quot;VETS Verified: {8}&quot; + Environment.NewLine + &quot;Summary: {9}&quot;, in_DUNSNumber, in_VendorName, in_VendorAddress, in_ExclusionRecords.Split(&quot;?&quot;c)(1), isIssueFound, in_SEWPVReport, in_EEOReport, in_VIPVerified, in_VETSVerification, Summary)]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" IsBodyHtml="False" IsDraft="False" Subject="[String.Format(&quot;Federal Contractor Check For DUNS#{0}&quot;, in_DUNSNumber)]" To="[in_Sender]">
+        <ui:SendOutlookMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Account="[in_BotEmailAddress]" sap2010:Annotation.AnnotationText="Send the output file using the bot's e-mail address to the sender. If any information is missing that would cause an exception while sending the e-mail, the error e-mail is sent instead." Body="[String.Format(&quot;DUNS#: {0}&quot; + Environment.NewLine + &quot;Vendor Name: {1}&quot; + Environment.NewLine + &quot;Vendor Address: {2}&quot; + Environment.NewLine + &quot;Active Exclusions (Yes/No): {3}&quot; + Environment.NewLine + &quot;Issues found in FAPIIS(e.g. Termination, Adverse Determination) (Yes/No): {4}&quot; + Environment.NewLine + &quot;SEWPV Contractor: {5}&quot; + Environment.NewLine + &quot;EEO Verified: {6}&quot; + Environment.NewLine + &quot;VIP Verified: {7}&quot; + Environment.NewLine + &quot;VETS Verified: {8}&quot; + Environment.NewLine + &quot;Summary: {9}&quot;, in_DUNSNumber, in_VendorName, in_VendorAddress, in_ExclusionRecords.Split(&quot;?&quot;c)(1), isIssueFound, in_SEWPVReport, in_EEOReport, in_VIPVerified, in_VETSVerification, Summary)]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" IsBodyHtml="False" IsDraft="False" Subject="[String.Format(&quot;Federal Contractor Check For DUNS#{0}&quot;, in_DUNSNumber)]" To="[in_Sender]">
           <ui:SendOutlookMail.Files>
             <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
               <InArgument x:TypeArguments="x:String">[String.Format("{0}\{1}_{2}.zip", in_DataFolderPath, in_DUNSNumber, in_FormattedDate)]</InArgument>
             </scg:List>
           </ui:SendOutlookMail.Files>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
         </ui:SendOutlookMail>
       </TryCatch.Try>
       <TryCatch.Catches>
@@ -107,24 +116,41 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence sap:VirtualizedContainerService.HintSize="376,241" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence sap:VirtualizedContainerService.HintSize="376,283" sap2010:WorkflowViewState.IdRef="Sequence_2">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="SendErrorEmail.xaml">
+              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Send the error email to the user, indicating a problem in the execution." DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="SendErrorEmail.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
                   <InArgument x:TypeArguments="x:String" x:Key="in_Sender">[in_Sender]</InArgument>
                   <InArgument x:TypeArguments="x:String" x:Key="in_DUNSNumber" />
                 </ui:InvokeWorkflowFile.Arguments>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
               </ui:InvokeWorkflowFile>
-              <ui:KillProcess ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="KillProcess_2" ProcessName="iexplore" />
+              <ui:KillProcess ContinueOnError="{x:Null}" Process="{x:Null}" sap2010:Annotation.AnnotationText="Kill the Internet Explorer Process." DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="334,64" sap2010:WorkflowViewState.IdRef="KillProcess_2" ProcessName="iexplore">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:KillProcess>
             </Sequence>
           </ActivityAction>
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <ui:KillProcess ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="438,22" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="iexplore" />
+    <ui:KillProcess ContinueOnError="{x:Null}" Process="{x:Null}" sap2010:Annotation.AnnotationText="Kill the Internet Explorer process." DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="438,22" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="iexplore">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:KillProcess>
   </Sequence>
 </Activity>

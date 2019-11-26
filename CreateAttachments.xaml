@@ -15,7 +15,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>500,1663</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>500,1797</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>CreateAttachments_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -64,7 +64,7 @@
       <AssemblyReference>System.ServiceModel</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="CreateAttachments" sap:VirtualizedContainerService.HintSize="480,1603" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="CreateAttachments" sap:VirtualizedContainerService.HintSize="480,1737" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="‪C:\Users\pmackevicius\Desktop\ADifferentFolder\" Name="DataFolderPath" />
     </Sequence.Variables>
@@ -74,67 +74,87 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="438,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
-    <Assign sap:VirtualizedContainerService.HintSize="438,60" sap2010:WorkflowViewState.IdRef="Assign_1">
-      <Assign.To>
-        <OutArgument x:TypeArguments="x:String">[out_SAMRegistrationDetailsFilePath]</OutArgument>
-      </Assign.To>
-      <Assign.Value>
-        <InArgument x:TypeArguments="x:String">[String.Format("{0}\{1}_RegistrationDetails_{2}.txt", in_DataFolderPath, in_DUNSNumber, in_FormattedDate)]</InArgument>
-      </Assign.Value>
-    </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="438,60" sap2010:WorkflowViewState.IdRef="Assign_2">
-      <Assign.To>
-        <OutArgument x:TypeArguments="x:String">[out_RepsAndCertsFilePath]</OutArgument>
-      </Assign.To>
-      <Assign.Value>
-        <InArgument x:TypeArguments="x:String">[String.Format("{0}\{1}_RepsAndCerts_{2}.txt", in_DataFolderPath, in_DUNSNumber, in_FormattedDate)]</InArgument>
-      </Assign.Value>
-    </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="438,60" sap2010:WorkflowViewState.IdRef="Assign_3">
-      <Assign.To>
-        <OutArgument x:TypeArguments="x:String">[out_RecordDetailsFilePath]</OutArgument>
-      </Assign.To>
-      <Assign.Value>
-        <InArgument x:TypeArguments="x:String">[String.Format("{0}\{1}_RecordDetails_{2}.txt", in_DataFolderPath, in_DUNSNumber, in_FormattedDate)]</InArgument>
-      </Assign.Value>
-    </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="438,60" sap2010:WorkflowViewState.IdRef="Assign_4">
-      <Assign.To>
-        <OutArgument x:TypeArguments="x:String">[out_FAPIISRecordsFilePath]</OutArgument>
-      </Assign.To>
-      <Assign.Value>
-        <InArgument x:TypeArguments="x:String">[String.Format("{0}\{1}.pdf", in_DataFolderPath, in_FAPIISFile)]</InArgument>
-      </Assign.Value>
-    </Assign>
+    <Sequence sap2010:Annotation.AnnotationText="Creates the file path strings for each information file." DisplayName="Create the file path strings" sap:VirtualizedContainerService.HintSize="438,494" sap2010:WorkflowViewState.IdRef="Sequence_5">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[out_SAMRegistrationDetailsFilePath]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[String.Format("{0}\{1}_RegistrationDetails_{2}.txt", in_DataFolderPath, in_DUNSNumber, in_FormattedDate)]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[out_RepsAndCertsFilePath]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[String.Format("{0}\{1}_RepsAndCerts_{2}.txt", in_DataFolderPath, in_DUNSNumber, in_FormattedDate)]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[out_RecordDetailsFilePath]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[String.Format("{0}\{1}_RecordDetails_{2}.txt", in_DataFolderPath, in_DUNSNumber, in_FormattedDate)]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[out_FAPIISRecordsFilePath]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[String.Format("{0}\{1}.pdf", in_DataFolderPath, in_FAPIISFile)]</InArgument>
+        </Assign.Value>
+      </Assign>
+    </Sequence>
     <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,1049" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="376,822" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence sap2010:Annotation.AnnotationText="Create the text files using the scraped information strings and file path strings." sap:VirtualizedContainerService.HintSize="376,879" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <Sequence.Variables>
             <Variable x:TypeArguments="s:String[]" Name="files" />
           </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <ui:WriteTextFile DisplayName="Write Text File" FileName="[out_SAMRegistrationDetailsFilePath]" sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[in_SAMRegistrationDetails]" />
           <ui:WriteTextFile DisplayName="Write Text File" FileName="[out_RepsAndCertsFilePath]" sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="WriteTextFile_2" Text="[in_RepsAndCerts]" />
           <ui:WriteTextFile DisplayName="Write Text File" FileName="[out_RecordDetailsFilePath]" sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="WriteTextFile_3" Text="[in_RecordDetails]" />
-          <Sequence sap:VirtualizedContainerService.HintSize="334,214" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <Sequence DisplayName="Create a zip file" sap:VirtualizedContainerService.HintSize="334,271" sap2010:WorkflowViewState.IdRef="Sequence_4">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+            <Assign sap2010:Annotation.AnnotationText="Create an array of file paths using the files present in the directory." sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_5">
               <Assign.To>
                 <OutArgument x:TypeArguments="s:String[]">[files]</OutArgument>
               </Assign.To>
               <Assign.Value>
                 <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(in_DataFolderPath)]</InArgument>
               </Assign.Value>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
             </Assign>
-            <bz:ZipFilesCls Password="{x:Null}" DisplayName="Zip" FolderFilesPath="[files]" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="ZipFilesCls_1" ZipFile="[String.Format(&quot;{0}\{1}_{2}.zip&quot;, in_DataFolderPath, in_DUNSNumber, in_FormattedDate)]" />
+            <bz:ZipFilesCls Password="{x:Null}" sap2010:Annotation.AnnotationText="Create a zip file from the files in the data folder directory, placed in the same directory" DisplayName="Zip" FolderFilesPath="[files]" sap:VirtualizedContainerService.HintSize="262,79" sap2010:WorkflowViewState.IdRef="ZipFilesCls_1" ZipFile="[String.Format(&quot;{0}\{1}_{2}.zip&quot;, in_DataFolderPath, in_DUNSNumber, in_FormattedDate)]">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </bz:ZipFilesCls>
           </Sequence>
         </Sequence>
       </TryCatch.Try>
